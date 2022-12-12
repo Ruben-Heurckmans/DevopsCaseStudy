@@ -122,8 +122,8 @@ namespace WebscraperIctJob
 
             Directory.CreateDirectory("D:\\DevOps");
 
-            File.WriteAllText(@"D:\IctJob.csv", csv.ToString());
-            File.WriteAllText(@"D:\IctJob.json", json);
+            File.WriteAllText(@"D:\DevOps\IctJob.csv", csv.ToString());
+            File.WriteAllText(@"D:\DevOps\IctJob.json", json);
             Console.ReadLine();
 
         }
