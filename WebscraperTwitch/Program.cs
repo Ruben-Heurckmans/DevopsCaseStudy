@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Text.Json;
 
 namespace WebscraperTwitch
 {
@@ -24,6 +24,10 @@ namespace WebscraperTwitch
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://www.twitch.tv/directory/game/" + zoekterm + "?sort=VIEWER_COUNT");
 
+            List<data> _data = new List<data>();
+
+            string json = "";
+            var csv = new StringBuilder();
 
             try
             {
@@ -55,20 +59,54 @@ namespace WebscraperTwitch
 
                         Console.WriteLine("_________________________________________________");
                         Console.WriteLine();
+
+                        _data.Add(new data()
+                        {
+                            Titel = titel,
+                            Taal = taal,
+                            Kanaal = kanaal,
+                            Kijkers = kijkers,
+                        }); ;
+                        json = JsonSerializer.Serialize(_data);
+
+                        var newLine = string.Format("{0},{1},{2},{3}", titel, taal, kanaal, kijkers);
+                        csv.AppendLine(newLine);
                     }
 
                 }
 
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Er zijn niet genoeg streams in deze categorie om aan 5 te komen.");
+                    string error = "Er zijn niet genoeg streams in deze categorie om aan 5 te komen.";
+                    Console.WriteLine(error);
+                    _data.Add(new data()
+                    {
+                        Error = error,
+                    }); ;
+                    json = JsonSerializer.Serialize(_data);
+
+                    var newLine = string.Format("{0}", error);
+                    csv.AppendLine(newLine);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Categorie bestaat niet");
+                string error = "Categorie bestaat niet.";
+                Console.WriteLine(error);
+                _data.Add(new data()
+                {
+                    Error = error,
+                }); ;
+                json = JsonSerializer.Serialize(_data);
+
+                var newLine = string.Format("{0}", error);
+                csv.AppendLine(newLine);
             }
 
+            Directory.CreateDirectory("D:\\DevOps");
+
+            File.WriteAllText(@"D:\DevOps\Twitch.csv", csv.ToString());
+            File.WriteAllText(@"D:\DevOps\Twitch.json", json);
             Console.ReadLine();
 
         }

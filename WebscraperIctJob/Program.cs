@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-
 
 namespace WebscraperIctJob
 {
@@ -91,9 +89,25 @@ namespace WebscraperIctJob
 
                 }
 
+                    catch (Exception ex)
+                    {
+                        string error = "Er zijn niet genoeg jobs met deze keyword('s) om aan 5 te komen.";
+                        Console.WriteLine(error);
+                        _data.Add(new data()
+                        {
+                            Error = error,
+                        }); ;
+                        json = JsonSerializer.Serialize(_data);
+
+                        var newLine = string.Format("{0}", error);
+                        csv.AppendLine(newLine);
+
+                    }
+
+                }
                 catch (Exception ex)
                 {
-                    string error = "Er zijn niet genoeg jobs met deze keyword('s) om aan 5 te komen.";
+                    string error = "Er zijn geen jobs met deze zoekterm.";
                     Console.WriteLine(error);
                     _data.Add(new data()
                     {
@@ -106,23 +120,10 @@ namespace WebscraperIctJob
 
                 }
 
-            }
-            catch (Exception ex)
-            {
-                string error = "Er zijn geen jobs met deze zoekterm.";
-                Console.WriteLine(error);
-                _data.Add(new data()
-                {
-                    Error = error,
-                }); ;
-                json = JsonSerializer.Serialize(_data);
+            Directory.CreateDirectory("D:\\DevOps");
 
-                var newLine = string.Format("{0}", error);
-                csv.AppendLine(newLine);
-
-            }
-            File.WriteAllText(@"D:\test.csv", csv.ToString());
-            File.WriteAllText(@"D:\test.json", json);
+            File.WriteAllText(@"D:\IctJob.csv", csv.ToString());
+            File.WriteAllText(@"D:\IctJob.json", json);
             Console.ReadLine();
 
         }
