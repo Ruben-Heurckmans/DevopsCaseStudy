@@ -4,7 +4,6 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Text.Json;
 
 namespace WebscraperTwitch
@@ -75,7 +74,7 @@ namespace WebscraperTwitch
 
                 }
 
-                catch (Exception ex)
+                catch
                 {
                     string error = "Er zijn niet genoeg streams in deze categorie om aan 5 te komen.";
                     Console.WriteLine(error);
@@ -89,7 +88,7 @@ namespace WebscraperTwitch
                     csv.AppendLine(newLine);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 string error = "Categorie bestaat niet.";
                 Console.WriteLine(error);

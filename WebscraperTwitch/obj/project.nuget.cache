@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "K5Tm1La1BXB5tfhsyyT/TX0xvT9FYmf+Lfi4SiRSIr5/RoAM1Q65zKKcmyTBlB3gJWhUZmMN/iA/xLh75fhZDg==",
+  "dgSpecHash": "w3S0Z/zPAA3b81FOs9cFCgwED10CkMOU7WieuNCHyfP2yfTSRl5LtpXuPUqQteDjFRe8QWff5UU+K1C+6O1tYw==",
   "success": true,
   "projectFilePath": "D:\\Projecten\\VisualStudio\\DevOpsTaak\\DevopsCaseStudy\\WebscraperTwitch\\WebscraperTwitch.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\heurc\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\heurc\\.nuget\\packages\\selenium.webdriver\\4.6.0\\selenium.webdriver.4.6.0.nupkg.sha512",
+    "C:\\Users\\heurc\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.13\\microsoft.netcore.app.runtime.win-x64.5.0.13.nupkg.sha512",
+    "C:\\Users\\heurc\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.13\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.13.nupkg.sha512",
+    "C:\\Users\\heurc\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.13\\microsoft.aspnetcore.app.runtime.win-x64.5.0.13.nupkg.sha512",
     "C:\\Users\\heurc\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
   ],
   "logs": []

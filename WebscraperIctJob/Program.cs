@@ -10,7 +10,6 @@ namespace WebscraperIctJob
 {
     internal class Program
     {
-        private static string json;
 
         static void Main(string[] args)
         {
@@ -89,7 +88,7 @@ namespace WebscraperIctJob
 
                 }
 
-                    catch (Exception ex)
+                    catch
                     {
                         string error = "Er zijn niet genoeg jobs met deze keyword('s) om aan 5 te komen.";
                         Console.WriteLine(error);
@@ -105,7 +104,7 @@ namespace WebscraperIctJob
                     }
 
                 }
-                catch (Exception ex)
+                catch
                 {
                     string error = "Er zijn geen jobs met deze zoekterm.";
                     Console.WriteLine(error);
