@@ -23,6 +23,10 @@ namespace WebscraperIctJob
             //start driver en browse naar pagina
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://www.ictjob.be/nl/it-vacatures-zoeken?keywords=" + zoekterm);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
+
+            var sortbutton = driver.FindElement(By.CssSelector("#sort-by-date"));
+            sortbutton.Click();
 
             List<data> _data = new List<data>();
 
@@ -47,7 +51,15 @@ namespace WebscraperIctJob
                             var titel = vacature.FindElement(By.CssSelector(".job-title")).Text;
                             var bedrijf = vacature.FindElement(By.CssSelector(".job-company")).Text;
                             var locatie = vacature.FindElement(By.CssSelector(".job-location")).Text;
-                            var keywords = vacature.FindElement(By.CssSelector(".job-keywords")).Text;
+                            var keywords = "";
+                            try
+                            {
+                                keywords = vacature.FindElement(By.CssSelector(".job-keywords")).Text;
+                            }
+                            catch
+                            {
+                                keywords = "Geen keywords";
+                            }
                             var link = vacature.FindElement(By.CssSelector(".job-title")).GetAttribute("href");
 
                             //Print Job details
@@ -90,7 +102,7 @@ namespace WebscraperIctJob
 
                     catch
                     {
-                        string error = "Er zijn niet genoeg jobs met deze keyword('s) om aan 5 te komen.";
+                        string error = "Er zijn niet genoeg jobs met deze keyword(s) om aan 5 te komen.";
                         Console.WriteLine(error);
                         _data.Add(new data()
                         {

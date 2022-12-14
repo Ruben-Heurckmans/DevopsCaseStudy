@@ -37,14 +37,15 @@ namespace WebscraperTwitch
                 {
                     for (int i = 1; i <= 5; i++)
                     {
-                        //Haal alle data op van de stream
-                        var stream = streams.FindElement(By.CssSelector("#directory-game-main-content > div:nth-child(4) > div > div.Layout-sc-1xcs6mc-0.bYReYr > div.ScTower-sc-1sjzzes-0.czzjEE.tw-tower > div:nth-child(" + (i + 1) + ")"));
-
+                        //Haal alle data op van de stream                       
+                        var stream = streams.FindElement(By.CssSelector("#directory-game-main-content > div:nth-child(4) > div > div.Layout-sc-1xcs6mc-0.bYReYr > div.ScTower-sc-1sjzzes-0.czzjEE.tw-tower > div:nth-child(" + (i+1) + ")"));
                         //Zoek in alle data de details
                         var titel = stream.FindElement(By.CssSelector("h3")).Text;
                         var kanaal = stream.FindElement(By.CssSelector("p")).Text;
                         var kijkers = stream.FindElement(By.CssSelector("div.tw-media-card-stat")).Text;
                         var taal = stream.FindElement(By.CssSelector("div.bPzjwR")).Text;
+                        
+
 
                         //Fix encoding voor speciale tekens (bv. aziatische letters)
                         Console.OutputEncoding = Encoding.UTF8;

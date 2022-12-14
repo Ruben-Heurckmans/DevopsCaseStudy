@@ -109,8 +109,6 @@ namespace WebscraperYt
             File.WriteAllText(@"D:\DevOps\Yt.json", json);
             Console.ReadLine();
 
-            Console.ReadKey();
-
         }
     }
 }
