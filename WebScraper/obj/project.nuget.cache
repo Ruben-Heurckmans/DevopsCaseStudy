@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "eAaC3M2W4jdjqX20maKaLoOfXyEz0LW+TFBRva+IB8xtKfdEtQNfggSpKmfDK3Par2NgzcshHkFqVttd3v9Y1w==",
+  "success": true,
+  "projectFilePath": "D:\\Projecten\\VisualStudio\\DevOpsTaak\\DevopsCaseStudy\\WebScraper\\WebScraper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\heurc\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\heurc\\.nuget\\packages\\selenium.webdriver\\4.6.0\\selenium.webdriver.4.6.0.nupkg.sha512",
+    "C:\\Users\\heurc\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}
